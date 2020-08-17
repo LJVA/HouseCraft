@@ -56,6 +56,20 @@ class Utils{
              window.location.href="index.php";
              </script>';
     }
+    
+    public static function cuerpoCorreo($nombre,$descripcion,$precio,$imagen){
+        $mensaje = "<h2>Informacion del compra</h2><br>";
+        $mensaje.= "<p>Nombre:   ";
+        $mensaje.= $nombre.'<br>';
+        $mensaje.= "Descripcion:    ";
+        $mensaje.= $descripcion.'<br>';
+        $mensaje.= "Precio:     ";
+        $mensaje.= $precio.'<br>';
+        $mensaje.= "Foto:     ";
+        $mensaje.= $imagen.'<br></p>';
+        $mensaje.= '<h2>Garantia 30 Dias</h2><br>';
+        return $mensaje;
+    }
 }
 ?>
 

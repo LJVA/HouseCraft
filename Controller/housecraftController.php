@@ -108,8 +108,6 @@ class housecraftController {
     public function Comprar(){
         $asunto = "Estado sobre su compra reciente";
         $mensaje = "Compra realizada correctamente; Pronto estaremos en contacto con usted";
-        $cuerpo = "<h2>Informacion del compra</h2><br>";
-        $cuerpo.= "<p>Nombre: </p><br>";
         $articulos = $this->Amodel->buscarXcodigo($_POST['codigo']);
         $artesano = $this->model->buscarXcodigo($articulos->getCreador());
         $articulos->setEstado(3);
@@ -118,6 +116,7 @@ class housecraftController {
         $compra->setCodigo2($articulos->getCodigo());$compra->setNombre2($articulos->getNombre());$compra->setGanancia($articulos->getPrecio());
         $this->CModel->registar($compra);
         $this->Amodel->actualizar($articulos);
+        $cuerpo = Utils::cuerpoCorreo($articulos->getNombre(),$articulos->getDescripcion(),$articulos->getPrecio(),$articulos->getImagen());
         Utils::envioCorreo($_POST['correo'], $_POST['nombre'], $asunto, $cuerpo);
         Utils::mostrarAlert($mensaje);
     }
