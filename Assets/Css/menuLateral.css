@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+
+
+/*e-cards*/
+section.e-cards
+{
+    background: linear-gradient(45deg, #E315E3, #15DDE3);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+    width: 100%;
+}
+
+.container
+{
+    position: relative;
+    width: 1150px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.container .card
+{
+    position: relative;
+    width: 350px;
+    height: 550px;
+    background: #232323;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.container .card:before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #45f3ff;
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out;
+}
+.container .card:hover:before
+{
+    clip-path: circle(300px at 80% -20%);
+}
+.container .card:after
+{
+    content: 'House Craft';
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255,255,255,0.04);
+}
+.container .card .imgBx
+{
+    position: absolute;
+    top: 50%;
+    transform:  translateY(-50%);
+    z-index: 10000;
+    width: 100%;
+    height: 220px;
+    transition: 0.5s;
+}
+.container .card:hover .imgBx
+{
+    top: 0%;
+    transform:  translateY(-10%);
+}
+.container .card .imgBx img
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%,-50%) rotate(-25deg);
+    width: 270px;
+}
+.container .card .contentBx
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+}
+.container .card:hover .contentBx
+{
+    height: 385px;
+}
+.container .card .contentBx h2
+{
+    font-size: 25px;
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+}
+.container .card .contentBx .size
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+.container .card:hover .contentBx .size
+{
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+.container .card .contentBx .size span
+{
+    width: 260px;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    display: inline-block;
+    color: #111;
+    background: #45f3ff;
+    margin: 0 5px;
+    transition: 0.5s;
+    color: #111;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.container .card .contentBx .size span:hover
+{
+    background: #009ca7;
+}
+.container .card .contentBx a
+{
+    display: inline-block;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #111;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.5s;
+}
+.container .card:hover .contentBx a
+{
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: 0.75s;
+}
+
+
+
+
+
+/*principal*/
+.banner
+{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url(Img/principal.jpg);
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner #text
+{
+    position: relative;
+    font-size: 12em;
+    color: #E32715;
+}
+.banner .clouds
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+.banner .clouds img
+{
+    position: absolute;
+    bottom: 0;
+    max-width: 100%;
+    animation: animate calc(3s * var(--𝒾)) linear infinite;
+}
+@keyframes animate
+{
+    0%
+    {
+        opacity: 0;
+        transform: scale(1);
+    }
+    25%,75%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+        transform: scale(3);
+    }
+}
+section
+{
+    position: relative;
+    padding: 75px 100px;
+}
+section h2
+{
+    color: #fff;
+    position: relative;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+/*menuPrincipal*/
+
+.toggle
+{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
+}
+.toggle:before
+{
+    content: '+';
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 50px;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    background: #000;
+    transition: 0.5s;
+}
+.toggle.active:before
+{
+    transform: rotate(405deg);
+    background: #ffeb3b;
+    color: #000;
+}
+.overlay
+{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(0,0,0,.95);
+    transition: transform 0.5s;
+}
+.overlay.active
+{
+    transform: scale(100,100);
+}
+.menu
+{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    z-index: 1;
+    visibility: hidden;
+}
+.menu.active
+{
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+.menu ul
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%,-50%);
+    margin: 0;
+    padding: 0;
+}
+.menu ul li
+{
+    list-style: none;
+}
+.menu ul li a
+{
+    position: relative;
+    font-size: 48px;
+    text-decoration: none;
+    color: #fff;
+    margin: 20px 0;
+    display: block;
+    font-weight: bold;
+    text-shadow: 0 2px 5px rgba(0,0,0,.5); 
+}
+.menu ul li a:before
+{
+     content: '';
+     position: absolute;
+     bottom: 5px;
+     left: -10px;
+     width: 100%;
+     height: 20px;
+     background: #ffeb3b;
+     z-index: -1;
+     transform: scaleX(0);
+     transform-origin: left;
+     transition: transform 0.5s;
+}
+.menu ul li a:hover:before
+{
+    transform: scaleX(1);
+}
+
+
+section.compra
+{
+    background: linear-gradient(45deg, #EF365D, #EFE636);
+    width: 100%;
+    padding: 100px;
+}
+.compra form input
+{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 0 10px;
+    color: #fff;
+}
+
+.compra form input[type="submit"]
+{
+    border: none;
+    padding: 7px 35px;
+    cursor: pointer;
+    outline: none;
+    background: linear-gradient(45deg, #E315E3, #15DDE3);
+    color: #fff;
+    font-size: 18px;
+    border-radius: 2px;
+}
+
+
+
+
+
+
+
+
+footer {
+  background: transparent;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  color: white;
+  text-align: center;
+}
